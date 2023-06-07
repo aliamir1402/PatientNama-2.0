@@ -13,7 +13,7 @@ function createMainWindow(){
         icon: 'logo.jpg'
     });
 
-    MainWindow.loadFile(path.join(__dirname,"./renderer/dashboard.html"));
+    MainWindow.loadFile(path.join(__dirname,"dashboard.html"));
 }
 
 app.whenReady().then(()=>{
