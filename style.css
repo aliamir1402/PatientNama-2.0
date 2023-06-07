@@ -1,0 +1,596 @@
+/*Drop-Down List*/
+/* Container for the dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    height: 0px;
+    width: 110px;
+}
+
+/* Styling the dropdown button */
+.dropdown .dropdown-button {
+    display: inline-block;
+    border: none;
+    background-color: #121314;
+    color: #ecebeb;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Space Grotesk';
+}
+
+/* Styling the dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #121314;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    z-index: 1;
+}
+
+/* Styling the dropdown options */
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Hover effect on dropdown options */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown content when the dropdown button is clicked */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*Css for add.html*/
+body {
+    font-family: 'Space Grotesk';
+    font-size: 16px;
+    background-color: rgb(248, 244, 244);
+    color: rgb(255, 249, 249);
+    width: 92%;
+    margin-left: 65px;
+}
+
+div {
+    margin-top: 30px;
+}
+
+table {
+    border: 1px solid black;
+}
+
+#header {
+    display: inline-flex;
+    border-radius: 20px;
+    background-color: #121314;
+    box-shadow: 1px 1px 100px 10px black;
+    margin-bottom: 100px;
+    padding: 10px;
+    width: 99%;
+    height: 170px;
+}
+
+.head {
+    height: 100px;
+    width: 700px;
+    padding: 10px;
+    font-size: 20px;
+    margin-right: 10px;
+    font-size: 22px;
+}
+
+div #operations {
+    display: inline-flex;
+    margin-left: 200px;
+}
+
+div #operations div {
+    padding: 10px;
+    padding-top: 20px;
+    margin: 10px;
+}
+
+div #operations div img {
+    border-radius: 5px;
+    background-color: black;
+}
+
+div #operations div a {
+    text-align: center;
+    text-decoration: solid;
+    text-transform: capitalize;
+    margin-left: 5px;
+    color: rgb(255, 255, 255);
+    height: 20px;
+    width: 80px;
+}
+
+div #operations div a:hover {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    height: 20px;
+    width: 120px;
+    background-image: linear-gradient(to right, #00869e, #c466e0);
+    border-radius: 20px;
+    padding: 2px;
+    transition: font-weight 1s ease;
+}
+
+div h2 {
+    text-align: center;
+    margin-left: 40%;
+    box-shadow: 2px 2px 15px 5px #ffffff;
+    border-radius: 10px;
+    background-color: rgb(255, 254, 254);
+    color: rgb(17, 16, 16);
+    padding: 7px;
+    text-align: center;
+    width: 250px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+div #format {
+    border: 0px solid black;
+    border-radius: 40px;
+    width: 98.5%;
+    background-color: rgb(64, 166, 184);
+    box-shadow: 1px 1px 15px 3px rgb(41, 32, 32);
+    padding: 10px;
+}
+
+div.format {
+    display: inline-flex;
+    margin-left: 110px;
+    width: 1000px;
+    margin-top: 20px;
+}
+
+div.format #name,
+div.format #age,
+div.format #hnumber,
+div.format #cnic,
+div.format #address,
+div.format #cname,
+div.format #mnumber,
+div.format #dt,
+div.format #birthday {
+    margin-right: 200px;
+    height: 50px;
+    padding: 2px;
+    text-align: center;
+    font-family: 'Space Grotesk';
+    font-size: 15px;
+    border-radius: 12px;
+    border: 0px solid black;
+}
+
+div.format #name:hover,
+div.format #age:hover,
+div.format #hnumber:hover,
+div.format #cnic:hover,
+div.format #address:hover,
+div.format #cname:hover,
+div.format #mnumber:hover,
+div.format #dt:hover,
+div.format #birthday:hover {
+    box-shadow: 1px 1px 7px 7px rgb(46, 44, 44);
+    transition: box-shadow 1s;
+}
+
+div.format #gender {
+    width: 190px;
+    border-radius: 12px;
+    padding: 4px;
+    text-align: justify;
+    height: 60px;
+    background-color: white;
+    color: rgb(71, 69, 69);
+    margin-top: 0px;
+}
+
+div.format #gender:hover {
+    box-shadow: 1px 1px 7px 7px rgb(46, 44, 44);
+    transition: box-shadow 1s;
+}
+
+#dt,
+#birthday {
+    width: 120px;
+}
+
+div #name {
+    text-align: left;
+    font-family: 'Space Grotesk';
+
+}
+
+div #txtArea {
+    border: 0px solid black;
+    border-radius: 20px;
+    width: 98.5%;
+    background-color: rgb(64, 166, 184);
+    box-shadow: 1px 1px 15px 3px rgb(41, 32, 32);
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Space Grotesk';
+    color: rgb(255, 255, 255);
+}
+
+div .investigations {
+    display: inline-flex;
+    margin-left: 150px;
+    width: 98.5%;
+}
+
+div #inves-format {
+    border-radius: 30px;
+    width: 97%;
+    background-color: rgb(64, 166, 184);
+    box-shadow: 1px 1px 15px 3px rgb(41, 32, 32);
+    padding: 20px;
+}
+
+div .investigations input {
+    margin-right: 200px;
+    height: 50px;
+    text-align: center;
+    font-family: 'Space Grotesk';
+    font-size: 15px;
+    border-radius: 12px;
+    border: 0px solid black;
+}
+
+div .investigations input:hover {
+    box-shadow: 1px 1px 7px 7px rgb(46, 44, 44);
+    transition: box-shadow 1s;
+}
+
+table {
+    color: black;
+    text-align: center;
+    border-radius: 30px;
+    width: 100%;
+    background-color: rgb(64, 166, 184);
+    box-shadow: 1px 1px 15px 3px rgb(41, 32, 32);
+    padding: 20px;
+    border: 0px solid black;
+}
+
+tr,
+td {
+    padding: 5px;
+    font-size: large;
+}
+
+td input {
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Space Grotesk';
+    font-size: 12px;
+    border: 0px solid black;
+}
+
+td input:hover {
+    box-shadow: 1px 1px 7px 7px rgb(46, 44, 44);
+    transition: box-shadow 1s;
+}
+
+#txtArea::placeholder {
+    color: rgb(30, 31, 30);
+}
+
+div.button {
+    text-align: right;
+    padding: 10px;
+}
+
+div.button button {
+    background-color: #00869e;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Space Grotesk';
+    border: 0px solid black;
+}
+
+div.button button:hover {
+    border: 0px solid black;
+    box-shadow: 5px 5px 10px black;
+    transition: box-shadow 0.5s;
+}
+
+#footer {
+    display: inline-flex;
+    height: 280px;
+    border-radius: 20px;
+    background-color: #121314;
+    box-shadow: 1px 1px 100px 10px black;
+    padding: 10px;
+    width: 99%;
+}
+
+#footer div {
+    margin-right: 40px;
+}
+
+.foot {
+    height: 100px;
+    width: 300px;
+    padding: 0px;
+    font-size: 20px;
+    margin-right: 10px;
+    font-size: 22px;
+}
+
+div #operations-foot {
+    display: block;
+    width: 200px;
+}
+
+div #operations-foot div {
+    padding: 0px;
+    padding-top: 20px;
+    margin: 10px;
+
+}
+
+div #operations-foot div img {
+    border-radius: 5px;
+    background-color: black;
+
+}
+
+div #operations-foot div a {
+    text-align: center;
+    text-decoration: solid;
+    text-transform: capitalize;
+    margin-left: 5px;
+    color: rgb(255, 255, 255);
+    height: 20px;
+    width: 80px;
+
+}
+
+div #operations-foot div a:hover {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    height: 20px;
+    width: 80px;
+    background-image: linear-gradient(to right, #00869e, #c466e0);
+    border-radius: 20px;
+    padding: 2px;
+    transition: font-weight 1s ease;
+}
+
+#title {
+    margin-left: 100px;
+    width: 300px;
+    text-align: left;
+    margin-top: 120px;
+}
+
+#title p {
+    font-size: large;
+}
+
+/*Css for search.html*/
+
+div {
+    border: 0px solid black;
+}
+
+div #search-title {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    padding: 10px;
+}
+
+div #search-title img {
+    margin-right: 10px;
+}
+
+div #searchtab {
+    text-align: center;
+    margin-top: 0;
+}
+
+div #searchtab input {
+    padding: 20px;
+    background-color: rgb(64, 166, 184);
+    color: white;
+    border-radius: 20px;
+    width: 400px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Space Grotesk';
+    border: 7px solid black;
+    box-shadow: 1px 1px 30px 1px black;
+    margin-bottom: 50px;
+}
+
+div #searchtab input::placeholder {
+    color: rgb(51, 53, 51);
+}
+
+h3 {
+    text-align: center;
+    color: black;
+}
+
+h4 {
+    color: rgb(49, 48, 48);
+    margin-left: 200px;
+}
+
+div .dischargeMed {
+    display: inline-flex;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.dm {
+    color: black;
+    width: 200px;
+    text-align: center;
+    font-size: medium;
+    margin-left: 0px;
+}
+
+div #but button {
+    color: black;
+    font-size: large;
+    background-color: rgb(28, 180, 117);
+    margin-left: 50px;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+}
+
+#search-div {
+    display: inline-flex;
+    margin-left: 32%;
+    height: 130px;
+}
+
+#search-data {
+    padding-top: 15px;
+    display: none;
+}
+
+/*Css for dashboard.html*/
+#bod {
+    color: black;
+    margin-top: 0px;
+    display: inline-flex;
+    padding: 12px;
+    margin-right: 20px;
+}
+
+.img {
+    margin-right: 5px;
+    border: 5px solid #201c22;
+    border-radius: 30px;
+    padding:10px;
+}
+
+#bod div div button {
+    color: rgb(255, 252, 252);
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 16px;
+    width: 380px;
+    border-radius: 10px;
+    background-color: rgb(2, 4, 5);
+    border: 0px solid rgb(14, 13, 13);
+    font-family: 'Space Grotesk';
+}
+#bod div div button:hover {
+    background-image: linear-gradient(to right, #00869e, #c466e0);
+}
+#bod div div button a{
+    text-decoration: none;
+    color:white;
+}
+.img div img{
+    border-radius: 10px;
+}
+
+
+/*Css for delete.html*/
+
+div #delete-title {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    padding: 10px;
+}
+
+div #delete-title img {
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+div #deletetab {
+    text-align: center;
+    margin-top: 0;
+}
+
+div #deletetab input {
+    padding: 20px;
+    background-color: rgb(64, 166, 184);
+    color: white;
+    border-radius: 20px;
+    width: 400px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Space Grotesk';
+    border: 7px solid black;
+    box-shadow: 1px 1px 30px 1px black;
+    margin-bottom: 50px;
+}
+
+div #deletetab input::placeholder {
+    color: rgb(51, 53, 51);
+}
+
+h3 {
+    text-align: center;
+    color: black;
+}
+
+h4 {
+    color: rgb(49, 48, 48);
+    margin-left: 200px;
+}
+
+div .dischargeMed {
+    display: inline-flex;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.dm {
+    color: black;
+    width: 200px;
+    text-align: center;
+    font-size: medium;
+    margin-left: 0px;
+}
+
+div #but button {
+    color: black;
+    font-size: large;
+    background-color: rgb(28, 180, 117);
+    margin-left: 50px;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+}
+
+#delete-div {
+    display: inline-flex;
+    margin-left: 32%;
+    height: 130px;
+}
+
+#delete-data {
+    padding-top: 15px;
+    display: none;
+}
+
+.show {
+    display: none;
+}

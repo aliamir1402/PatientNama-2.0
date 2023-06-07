@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.jpg" type="image/icon type">
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space Grotesk">-->
+    <link rel="stylesheet" href="Space_Grotesk\static\SpaceGrotesk-Medium.ttf">
+    <link rel="stylesheet" href="style.css">
+    <script src="code.js"></script>
+    <title>PatientNama</title>
+</head>
+
+<body>
+    <div>
+        <div id="header">
+            <div class="head" style="width: 100px;"><img style="border-radius:5px;" src="logo.jpg" alt="Hospital Logo"
+                    height="100px" width="100px"></div>
+            <div class="head" style="margin-top: 30px;">
+                <span>Sheikh Zayad Hospital</span>
+                <br><span style="font-size: 15px;">Surgical Unit-1</span>
+            </div>
+            <div id="operations">
+                <div style="display: inline-flex;"><img src="home_318-42210.avif" alt="homelogo" height="20px"
+                        width="20px"><a href="dashboard.html">Home</a></div>
+                <div style="display: inline-flex;margin-top:3px;" class="dropdown">
+                    <img src="services.avif" alt="serviceLogo" height="20px" width="20px">
+                    <button class="dropdown-button">Operations</button>
+                    <div class="dropdown-content">
+                        <a style="width:115px;" href="add.html">Add Record</a>
+                        <a style="width:115px;" href="search.html">Search Record</a>
+                        <a style="width:115px;" href="delete.html">Delete Record</a>
+                    </div>
+                </div>
+                <div style="display: inline-flex;"><img src="login.avif" alt="homelogo" height="20px" width="20px"><a
+                        href="login.html">Login</a></div>
+            </div>
+        </div>
+        <div id="body">
+            <form action="" method="">
+                <div>
+                    <div>
+                        <h2>Patient Details</h2>
+                        <div id="format">
+                            <div class="format">
+                                <input type="text" name="name" value="" placeholder="Name" id="name" required>
+                                <br>
+                                <input type="number" name="age" value="" placeholder="Age(Years)" min="1" id="age"
+                                    required>
+                                <br>
+                                <input type="number" name="hnumber" value="" placeholder="Hospital Number" id="hnumber"
+                                    min="1" required>
+                            </div>
+                            <br>
+                            <div class="format">
+                                <input type="text" name="cnic" value="" placeholder="CNIC Number" minlength="13"
+                                    maxlength="13" id="cnic" required>
+                                <br>
+                                <input type="text" name="address" value="" placeholder="Address" id="address" required>
+                                <br>
+                                <input type="text" name="consultantname" value="" placeholder="Consultant Name"
+                                    id="cname" required>
+                            </div>
+                            <br>
+                            <div class="format">
+
+                                <input type="number" name="mobileNo" value="" placeholder="Mobile Number" minlength="11"
+                                    id="mnumber" maxlength="11" required>
+                                <br>
+                                <div id="gender">
+                                    <input type="radio" name="gender" value="Male" class="gender" required>Male
+                                    <br>
+                                    <input type="radio" name="gender" value="Female" class="gender" required>Female
+                                    <br>
+                                    <input type="radio" name="gender" value="Others" class="gender" required>Others
+                                </div>
+                                <br>
+
+                                <br>
+                            </div>
+                            <br>
+                            <div class="format">
+                                <label style="margin-right:20px;" for="admitdate"><b>Admit Date:</b></label>
+                                <input type="date" id="dt" name="dt" style="margin-right: 100px;">
+
+                                <label style="margin-right:20px;" for="birthday"><b>Birth Date:</b></label>
+                                <input type="date" id="birthday" name="birthday">
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Clinical Information</h2>
+                            <textarea name="txtArea" id="txtArea" cols="30" rows="5"
+                                placeholder="Enter Info..."></textarea>
+                            <h2>Examination Findings</h2>
+                            <textarea name="txtArea" id="txtArea" cols="30" rows="5"
+                                placeholder="Enter Findings..."></textarea>
+                        </div>
+                        <div>
+                            <h2>Investigations</h2>
+                            <div id="inves-format">
+                                <div class="investigations">
+                                    <input type="text" name="cbc" id="" placeholder="CBC">
+                                    <input type="text" name="lfts" id="" placeholder="LFTs">
+                                    <input type="text" name="electrolytes" id="" placeholder="Electrolytes">
+                                </div>
+                                <br>
+                                <div class="investigations">
+                                    <input type="text" name="viralmarkers" id="" placeholder="Viral Markers">
+                                    <input type="text" name="imaging" id="" placeholder="Imaging">
+                                    <input type="text" name="others" id="" placeholder="Others...">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Operative Notes</h2>
+                            <textarea name="txtArea" id="txtArea" cols="30" rows="5"
+                                placeholder="Enter Notes..."></textarea>
+                        </div>
+                        <div>
+                            <h2>Course / Treatment</h2>
+                            <textarea name="txtArea" id="txtArea" cols="30" rows="5"
+                                placeholder="Enter Notes..."></textarea>
+                        </div>
+                        <div>
+                            <h2>Discharge Medicines</h2>
+                        </div>
+                        <div id="table">
+                            <table>
+                                <tr>
+                                    <th>Medicine</th>
+                                    <th>Dose</th>
+                                    <th>Times a Day</th>
+                                    <th>Days</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="medicine" placeholder="Med Name..."></td>
+                                    <td><input type="text" name="dose" placeholder="Dose Name..."></td>
+                                    <td><input type="text" name="time" placeholder="Times a Day..."></td>
+                                    <td><input type="text" name="days" placeholder="Days..."></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="button">
+                            <button type="button" onclick="">+ Medicine</button>
+                        </div>
+                        <div>
+                            <h2 style="width:280px;">Follow-Up Instructions</h2>
+                            <textarea name="txtArea" id="txtArea" cols="30" rows="5"
+                                placeholder="Enter Instructions..."></textarea>
+                        </div>
+                        <br>
+                        <div class="button">
+                            <button style="background-color: rgb(28, 180, 117);font-size:large;" type="submit">Add
+                                Record</button>
+                        </div>
+            </form>
+            <br>
+            </form>
+        </div>
+        <div id="footer">
+            <div id="title">
+                <p>Important Links</p>
+            </div>
+            <div class="footerdiv">
+                <div class="foot" style="width: 100px;"><img style="border-radius:5px;" src="logo.jpg"
+                        alt="Hospital Logo" height="100px" width="100px"></div>
+                <div class="foot" style="margin-top: 30px;">
+                    <span>Sheikh Zayad Hospital</span>
+                    <br><span style="font-size: 15px;">Surgical Unit-1</span>
+                </div>
+            </div>
+            <div>
+                <div id="operations-foot">
+                    <div style="display: block;"><img src="home_318-42210.avif" alt="homelogo" height="20px"
+                            width="20px"><a href="dashboard.html">Home</a></div>
+                    <div style="display: inline-flex;margin-top:3px;" class="dropdown">
+                        <img src="services.avif" alt="serviceLogo" height="20px" width="20px">
+                        <button class="dropdown-button">Operations</button>
+                        <div class="dropdown-content">
+                            <a style="width:115px;" href="add.html">Add Record</a>
+                            <a style="width:115px;" href="search.html">Search Record</a>
+                            <a style="width:115px;" href="delete.html">Delete Record</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
