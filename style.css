@@ -1,6 +1,7 @@
-body{
+body {
     background-image: url('bg.jpg');
 }
+
 /*Drop-Down List*/
 /* Container for the dropdown */
 .dropdown {
@@ -55,6 +56,22 @@ body{
 }
 
 /*Css for add.html*/
+div #prompt {
+    background-color: #333;
+    color: #80da37;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left: 81%;
+    margin-top: 20px;
+    width: 200px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Space Grotesk';
+    display: none;
+}
+
 body {
     font-family: 'Space Grotesk';
     font-size: 16px;
@@ -218,7 +235,7 @@ div #name {
 
 }
 
-div #txtArea {
+div .txtArea {
     border: 0px solid black;
     border-radius: 20px;
     width: 98.5%;
@@ -290,7 +307,7 @@ td input:hover {
     transition: box-shadow 1s;
 }
 
-#txtArea::placeholder {
+.txtArea::placeholder {
     color: rgb(30, 31, 30);
 }
 
@@ -486,9 +503,21 @@ div #but button {
 
 .img {
     margin-right: 5px;
-    border: 5px solid #201c22;
+    border: 0px solid #201c22;
     border-radius: 30px;
     padding: 10px;
+    margin-bottom: 100px;
+}
+
+#h {
+    margin-left: 43%;
+    color: #d1d1d1;
+    background-color: #333;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 20px;
+    box-shadow: 1px 1px 30px 5px #383a3a;
+    margin-top: 50px;
 }
 
 #bod div div button {
@@ -514,7 +543,7 @@ div #but button {
 }
 
 .img div img {
-    border-radius: 10px;
+    border-radius: 50px;
 }
 
 
@@ -606,6 +635,19 @@ div #but button {
 }
 
 /*Login Page*/
+p a {
+    text-decoration: solid;
+    color: rgb(148, 139, 139);
+    font-weight: bold;
+}
+
+p a:hover {
+    color: rgb(42, 199, 94);
+    background-color: #333;
+    border-radius: 20px;
+    padding: 5px;
+}
+
 .login {
     position: auto;
     width: 320px;
