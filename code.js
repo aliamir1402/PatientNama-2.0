@@ -71,7 +71,7 @@ var add = () =>{
 
     const fs = require('fs');
 
-    const data = fname+"|"+age+"|"+hnumber+"|"+cnic+"|"+address+"|"+cname+"|"+mnumber+"|"+
+    const data = hnumber+"|"+fname+"|"+age+"|"+cnic+"|"+address+"|"+cname+"|"+mnumber+"|"+
     selectedValue+"|"+admitDate+"|"+birthDate+"|"+clinicalInfo+"|"+examFindings+"|"+
     cbc+"|"+lfts+"|"+electrolytes+"|"+viralmarkers+"|"+imaging+"|"+others+"|"+
     operatingNotes+"|"+course_treatment+"|";
@@ -85,4 +85,50 @@ var add = () =>{
     if (err) throw err;
     console.log('Data has been written to the file.');
     });
+}
+
+var searchFunc=()=>{
+    var searchItem=document.getElementById("search").value;
+    const fs = require('fs');
+
+    fs.readFile('data.txt', 'utf8', (err, data) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    });
+    const line = data.split('\n');
+    for (var i=0;i<line.length;i++) {
+        if(1)//line[i].includes(searchItem))
+        {
+            var contents=line[i].split("|");
+            var hnumber=contents[0];
+            var fname=contents[1];
+            var age=contents[2];
+            var cnic=contents[3];
+            var address=contents[4];
+            var cname=contents[5];
+            var mnumber=contents[6];
+            var selectedValue=contents[7];
+            var admitDate=contents[8];
+            var birthDate=contents[9];
+            var clinicalInfo=contents[10];
+            var examFindings=contents[11];
+            var cbc=contents[12];
+            var lfts=contents[13];
+            var electrolytes=contents[14];
+            var viralmarkers=contents[15];
+            var imaging=contents[16];
+            var others=contents[17];
+            var operatingNotes=contents[18];
+            var prompt=document.getElementById("prompt");
+            prompt.style.display="block";
+            prompt.innerHTML="<span>Data Found Successfully.</span>";
+        }
+        else{
+            var prompt=document.getElementById("prompt");
+            prompt.style.display="block";
+            prompt.innerHTML="<span>Data Not Found.</span>";
+        }
+    }
 }
