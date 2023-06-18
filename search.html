@@ -41,50 +41,56 @@
             <div id="search-title">
                 <h1><img src="searchlogo.png" alt="searchLogo" height="25px" width="25px">Search</h1>
             </div>
-            <div id="search-div">
-                <div id="searchtab">
-                    <input id="search" type="number" name="searchtab" min="1" placeholder="Enter Hospital Number..." required>
+            <form onsubmit="searchFunc(event)">
+                <div id="search-div">
+
+                    <div id="searchtab">
+                        <input id="search" type="number" name="searchtab" min="1" placeholder="Enter Hospital Number..."
+                            required>
+                    </div>
+                    <div id="but" class="button">
+                        <button type="sumbit">Search</button>
+                    </div>
                 </div>
-                <div id="but" class="button">
-                    <button type="button" onclick="searchFunc()">Search</button>
-                </div>
-            </div>
+            </form>
         </div>
         <div id="prompt"></div>
         <div id="search-data">
             <h3>Personal Details</h3>
-            <h4 id="fullName">Name:&nbsp;</h4>
-            <h4 id="cName">Consultant Name:&nbsp;</h4>
-            <h4 id="Age">Age:&nbsp;</h4>
-            <h4 id="Gender">Gender:&nbsp;</h4>
-            <h4 id="mobileNumber">Mobile Number:&nbsp;</h4>
-            <h4 id="hospitalNumber">Hospital Number:&nbsp;</h4>
-            <h4 id="Cnic">Cnic:&nbsp;</h4>
-            <h4 id="Address">Address:&nbsp;</h4>
-            <h4 id="AdmitDate">Admit Date:&nbsp;</h4>
-            <h4 id="BirthDate">Birth Date:&nbsp;</h4>
+            <h4>Name:&nbsp;<span id="fullName"></span></h4>
+            <h4>Consultant Name:&nbsp;<span id="cName"></span></h4>
+            <h4>Age:&nbsp;<span id="Age"></span></h4>
+            <h4 id="Gender">Gender:&nbsp;<span id="cName"></span></h4>
+            <h4 id="mobileNumber">Mobile Number:&nbsp;<span id="cName"></span></h4>
+            <h4 id="hospitalNumber">Hospital Number:&nbsp;<span id="cName"></span></h4>
+            <h4 id="Cnic">Cnic:&nbsp;<span id="cName"></span></h4>
+            <h4 id="Address">Address:&nbsp;<span id="cName"></span></h4>
+            <h4 id="AdmitDate">Admit Date:&nbsp;<span id="cName"></span></h4>
+            <h4 id="BirthDate">Birth Date:&nbsp;<span id="cName"></span></h4>
             <h3>Clinical Information</h3>
             <h4 id="clinicalInfo"></h4>
             <h3>Examination Findings</h3>
             <h4 id="examFindings"></h4>
             <h3>Investigations</h3>
-            <h4 id="CBC">CBC:&nbsp;</h4>
-            <h4 id="LFT">LFTs:&nbsp;</h4>
-            <h4 id="Electrolyte">Electrolytes:&nbsp;</h4>
-            <h4 id="ViralMarkers">Viral Markers:&nbsp;</h4>
-            <h4 id="Imagings">Imaging:&nbsp;</h4>
-            <h4 id="OTHERs">Others:&nbsp;</h4>
+            <h4 id="CBC">CBC:&nbsp;<span id="cName"></span></h4>
+            <h4 id="LFT">LFTs:&nbsp;<span id="cName"></span></h4>
+            <h4 id="Electrolyte">Electrolytes:&nbsp;<span id="cName"></span></h4>
+            <h4 id="ViralMarkers">Viral Markers:&nbsp;<span id="cName"></span></h4>
+            <h4 id="Imagings">Imaging:&nbsp;<span id="cName"></span></h4>
+            <h4 id="OTHERs">Others:&nbsp;<span id="cName"></span></h4>
             <h3>Operative Notes</h3>
             <h4 id="operativeNotes"></h4>
             <h3>Course / Treatment Notes</h3>
             <h4 id="treatmentNotes"></h4>
             <h3>Discharge Medicines</h3>
-            <div class="dischargeMed">
-                <span class="dm" style="margin-left: 200px;">Med Name</span>
-                <span class="dm">Dose</span>
-                <span class="dm">Time a Day</span>
-                <span class="dm">Days</span>
-            </div>
+            <span id="dismed">
+                <div class="dischargeMed">
+                    <span class="dm" style="margin-left: 200px;">Med Name</span>
+                    <span class="dm">Dose</span>
+                    <span class="dm">Time a Day</span>
+                    <span class="dm">Days</span>
+                </div>
+            </span>
             <h3>Follow-Up Instructions</h3>
             <h4 id="followInstructions"></h4>
         </div>
