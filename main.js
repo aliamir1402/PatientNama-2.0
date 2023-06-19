@@ -27,7 +27,7 @@ function createMainWindow() {
     MainWindow.loadFile(path.join(__dirname, "login.html"));
 }
 
-function server() {
+function serverAdd() {
     const app = express();
     const port = 3000;
     app.use(bodyParser.json());
@@ -38,32 +38,59 @@ function server() {
         const data = req.body;
         const obj = JSON.parse(JSON.stringify(data));
 
-        var x = obj.hnumber + "|" + obj.fname + "|" + obj.age + "|" + obj.cnic + "|" + obj.address + "|" + obj.cname + "|" + obj.mnumber + "|" + obj.selectedValue + "|" +
-            obj.admitDate + "|" + obj.birthDate + "|" + obj.clinicalInfo + "|" + obj.examFindings + "|" + obj.cbc + "|" + obj.lfts + "|" + obj.electrolytes + "|" + obj.viralmarkers +
-            "|" + obj.imaging + "|" + obj.others + "|" + obj.operatingNotes + "|" + obj.course_treatment + "|";
+        if (obj.operation=="add")
+        {    var x = obj.hnumber + "|" + obj.fname + "|" + obj.age + "|" + obj.cnic + "|" + obj.address + "|" + obj.cname + "|" + obj.mnumber + "|" + obj.selectedValue + "|" +
+                obj.admitDate + "|" + obj.birthDate + "|" + obj.clinicalInfo + "|" + obj.examFindings + "|" + obj.cbc + "|" + obj.lfts + "|" + obj.electrolytes + "|" + obj.viralmarkers +
+                "|" + obj.imaging + "|" + obj.others + "|" + obj.operatingNotes + "|" + obj.course_treatment + "|";
 
-        for (var i = 0; i < obj.medicineCount; i++) {
-            x += obj['medicine' + (i + 1)] + "|" + obj['dose' + (i + 1)] + "|" + obj['time' + (i + 1)] + "|" + obj['days' + (i + 1)] + "|";
-        }
-        x += obj.followInfo;
+            for (var i = 0; i < obj.medicineCount; i++) {
+                x += obj['medicine' + (i + 1)] + "|" + obj['dose' + (i + 1)] + "|" + obj['time' + (i + 1)] + "|" + obj['days' + (i + 1)] + "|";
+            }
+            x += obj.followInfo;
 
-        console.log("Data: " + x);
-        if (!data) {
-            console.log("No Data");
-            res.status(400).send('No data provided');
-            return;
-        }
-        console.log("C");
-        fs.appendFile('data.txt', x + '\n', 'utf8', (err) => {
-            if (err) {
-                console.error('Error appending to file:', err);
-                res.status(500).send('Error appending to file');
+            console.log("Data: " + x);
+            if (!data) {
+                console.log("No Data");
+                res.status(400).send('No data provided');
                 return;
             }
-            res.status(200).send('Data appended to file');
-            console.log("Appending");
-            console.log("D");
-        });
+            console.log("C");
+            fs.appendFile('data.txt', x + '\n', 'utf8', (err) => {
+                if (err) {
+                    console.error('Error appending to file:', err);
+                    res.status(500).send('Error appending to file');
+                    return;
+                }
+                res.status(200).send('Data appended to file');
+                console.log("Appending");
+                console.log("D");
+            });
+        }
+        else if (obj.operation=="del")
+        {
+            var info="";
+            for (var i=0;i<obj.count;i++){
+                info=info+obj[i]+"\n";
+            }
+            
+            console.log("Data: " + info.slice(0, 10));
+            if (!data) {
+                console.log("No Data");
+                res.status(400).send('No data provided');
+                return;
+            }
+            console.log("C");
+            fs.writeFile('data.txt', info + '\n', 'utf8', (err) => {
+                if (err) {
+                    console.error('Error appending to file:', err);
+                    res.status(500).send('Error appending to file');
+                    return;
+                }
+                res.status(200).send('Data appended to file');
+                console.log("Appending");
+                console.log("D");
+            });
+        }
     });
     console.log("E");
     app.listen(port, () => {
@@ -75,5 +102,5 @@ function server() {
 
 app.whenReady().then(() => {
     createMainWindow();
-    server();
+    serverAdd();
 });

@@ -111,6 +111,7 @@ var searchFunc = (event) => {
         });
 }
 
+var obj = {};
 
 function sendData(contents) {
     fetch('http://localhost:3000/appendData', {
@@ -210,7 +211,7 @@ var add = (event) => {
     ];
 
 
-    const obj = {
+    obj = {
         hnumber: dataArray[0],
         fname: dataArray[1],
         age: dataArray[2],
@@ -244,6 +245,122 @@ var add = (event) => {
 
     obj.followInfo = dataArray[dataArray.length - 1];
     obj.medicineCount = medicineCount;
+    obj.operation = "add";
 
     sendData(obj);
+}
+
+var delelte = (event) => {
+    event.preventDefault();
+    var index;
+    var medicine = [];
+    var dose = [];
+    var time = [];
+    var days = [];
+    var flag = 0;
+    var delteItem = document.getElementById("delte").value;
+
+    // Use Fetch API to read the text file
+    fetch('data.txt')
+        .then(response => response.text())
+        .then(data => {
+            var line = data.split("\n");
+            for (var i = 0; i < line.length; i++) {
+                if ((line[i].split("|"))[0] == delteItem) {
+                    index = i;
+                    var contents = line[i].split("|");
+                    var hnumber = contents[0];
+                    var fname = contents[1];
+                    var age = contents[2];
+                    var cnic = contents[3];
+                    var address = contents[4];
+                    var cname = contents[5];
+                    var mnumber = contents[6];
+                    var selectedValue = contents[7];
+                    var admitDate = contents[8];
+                    var birthDate = contents[9];
+                    var clinicalInfo = contents[10];
+                    var examFindings = contents[11];
+                    var cbc = contents[12];
+                    var lfts = contents[13];
+                    var electrolytes = contents[14];
+                    var viralmarkers = contents[15];
+                    var imaging = contents[16];
+                    var others = contents[17];
+                    var operatingNotes = contents[18];
+                    var course_treatment = contents[19];
+                    for (var j = 20; j < (line.length - 1); j += 4) {
+                        medicine.push(contents[j]);
+                        dose.push(contents[j + 1]);
+                        time.push(contents[j + 2]);
+                        days.push(contents[j + 3]);
+                    }
+                    var followInfo = contents[line.length - 1];
+                    var prompt = document.getElementById("prompt");
+                    var search_data = document.getElementById("delete-data");
+                    search_data.style.display = "block";
+                    prompt.style.display = "block";
+                    prompt.innerHTML = "<span>Data Found Successfully.</span>";
+                    flag = 1;
+
+                    document.getElementById("fullName").innerHTML = fname;
+                    document.getElementById("cName").innerHTML = cname;
+                    document.getElementById("Age").innerHTML = age;
+                    document.getElementById("Gender").innerHTML = selectedValue;
+                    document.getElementById("mobileNumber").innerHTML = mnumber;
+                    document.getElementById("hospitalNumber").innerHTML = hnumber;
+                    document.getElementById("Cnic").innerHTML = cnic;
+                    document.getElementById("Address").innerHTML = address;
+                    document.getElementById("AdmitDate").innerHTML = admitDate;
+                    document.getElementById("BirthDate").innerHTML = birthDate;
+                    document.getElementById("clinicalInfo").innerHTML = clinicalInfo;
+                    document.getElementById("examFindings").innerHTML = examFindings;
+                    document.getElementById("CBC").innerHTML = cbc;
+                    document.getElementById("LFT").innerHTML = lfts;
+                    document.getElementById("Electrolyte").innerHTML = electrolytes;
+                    document.getElementById("ViralMarkers").innerHTML = viralmarkers;
+                    document.getElementById("Imagings").innerHTML = imaging;
+                    document.getElementById("OTHERs").innerHTML = others;
+                    document.getElementById("operativeNotes").innerHTML = operatingNotes;
+                    document.getElementById("treatmentNotes").innerHTML = course_treatment;
+                    document.getElementById("followInstructions").innerHTML = followInfo;
+                    const iter = ((line.length - 1) - 20) / 4;
+                    for (var j = 0; j < iter; j++) {
+                        var htmlContentMed = '<div class="dischargeMed"><span class="dm" style="margin-left: 200px;">' + medicine[j] + '</span><span class="dm">' + dose[j] + '</span><span class="dm">' + time[j] + '</span><span class="dm">' + days[j] + '</span></div>';
+                        document.getElementById("dismed").insertAdjacentHTML("beforeend", htmlContentMed);
+                    }
+                    break;
+                }
+            }
+            if (flag == 0) {
+                var prompt = document.getElementById("prompt");
+                prompt.style.display = "block";
+                prompt.innerHTML = "<span>Data Not Found.</span>";
+                document.getElementById("delete-data").style.display = "none";
+            }
+            var showButton = document.getElementsByClassName("show");
+            showButton.style.display = "block";
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    del(i);
+}
+
+function del(index) {
+    fetch('data.txt')
+        .then(response => response.text())
+        .then(data => {
+            var line = data.split("\n");
+            line.splice(index, 1);
+        });
+
+    const object = {};
+
+    for (let i = 0; i < line.length; i++) {
+        object[i] = line[i];
+    }
+    object.operation="del";
+    object.count=line.length;
+    sendData(object);
 }
