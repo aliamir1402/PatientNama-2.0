@@ -24,7 +24,7 @@ function createMainWindow() {
         icon: 'logo.jpg'
     });
 
-    MainWindow.loadFile(path.join(__dirname, "login.html"));
+    MainWindow.loadFile(path.join(__dirname, "add.html"));
 }
 
 function serverAdd() {
@@ -32,14 +32,12 @@ function serverAdd() {
     const port = 3000;
     app.use(bodyParser.json());
 
-    console.log("A");
-    console.log("B");
     app.post('/appendData', (req, res) => {
         const data = req.body;
         const obj = JSON.parse(JSON.stringify(data));
 
-        if (obj.operation=="add")
-        {    var x = obj.hnumber + "|" + obj.fname + "|" + obj.age + "|" + obj.cnic + "|" + obj.address + "|" + obj.cname + "|" + obj.mnumber + "|" + obj.selectedValue + "|" +
+        if (obj.operation == "add") {
+            var x = obj.hnumber + "|" + obj.fname + "|" + obj.age + "|" + obj.cnic + "|" + obj.address + "|" + obj.cname + "|" + obj.mnumber + "|" + obj.selectedValue + "|" +
                 obj.admitDate + "|" + obj.birthDate + "|" + obj.clinicalInfo + "|" + obj.examFindings + "|" + obj.cbc + "|" + obj.lfts + "|" + obj.electrolytes + "|" + obj.viralmarkers +
                 "|" + obj.imaging + "|" + obj.others + "|" + obj.operatingNotes + "|" + obj.course_treatment + "|";
 
@@ -48,7 +46,6 @@ function serverAdd() {
             }
             x += obj.followInfo;
 
-            console.log("Data: " + x);
             if (!data) {
                 console.log("No Data");
                 res.status(400).send('No data provided');
@@ -62,17 +59,14 @@ function serverAdd() {
                     return;
                 }
                 res.status(200).send('Data appended to file');
-                console.log("Appending");
-                console.log("D");
+                console.log("Appended");
             });
-        }
-        else if (obj.operation=="del")
-        {
-            var info="";
-            for (var i=0;i<obj.count;i++){
-                info=info+obj[i]+"\n";
+        } else if (obj.operation == "del") {
+            var info = "";
+            for (var i = 0; i < obj.count; i++) {
+                info = info + obj[i] + "\n";
             }
-            
+
             console.log("Data: " + info.slice(0, 10));
             if (!data) {
                 console.log("No Data");
@@ -86,9 +80,8 @@ function serverAdd() {
                     res.status(500).send('Error appending to file');
                     return;
                 }
-                res.status(200).send('Data appended to file');
-                console.log("Appending");
-                console.log("D");
+                res.status(200).send('Data deleted from file');
+                console.log("Deleted");
             });
         }
     });

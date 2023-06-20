@@ -3,7 +3,7 @@ var loginFunc = () => {
     var password = document.getElementById('password').value;
 
     if (email && password) {
-        if (email === "aliamirkhawaja1@gmail.com" && password === "12345") {
+        if (email === "admin@gmail.com" && password === "12345") {
             window.location.href = "dashboard.html";
         } else {
             alert('Invalid email or password');
@@ -56,13 +56,13 @@ var searchFunc = (event) => {
                     var others = contents[17];
                     var operatingNotes = contents[18];
                     var course_treatment = contents[19];
-                    for (var j = 20; j < (line.length - 1); j += 4) {
+                    for (var j = 20; j < (contents.length - 1); j += 4) {
                         medicine.push(contents[j]);
                         dose.push(contents[j + 1]);
                         time.push(contents[j + 2]);
                         days.push(contents[j + 3]);
                     }
-                    var followInfo = contents[line.length - 1];
+                    var followInfo = contents[contents.length - 1];
                     var prompt = document.getElementById("prompt");
                     var search_data = document.getElementById("search-data");
                     search_data.style.display = "block";
@@ -91,7 +91,7 @@ var searchFunc = (event) => {
                     document.getElementById("operativeNotes").innerHTML = operatingNotes;
                     document.getElementById("treatmentNotes").innerHTML = course_treatment;
                     document.getElementById("followInstructions").innerHTML = followInfo;
-                    const iter = ((line.length - 1) - 20) / 4;
+                    const iter = ((contents.length - 1) - 20) / 4;
                     for (var j = 0; j < iter; j++) {
                         var htmlContentMed = '<div class="dischargeMed"><span class="dm" style="margin-left: 200px;">' + medicine[j] + '</span><span class="dm">' + dose[j] + '</span><span class="dm">' + time[j] + '</span><span class="dm">' + days[j] + '</span></div>';
                         document.getElementById("dismed").insertAdjacentHTML("beforeend", htmlContentMed);
@@ -165,10 +165,10 @@ var add = (event) => {
     var course_treatment = document.getElementById("course").value;
     var followInfo = document.getElementById("followup").value;
 
-    var med = document.getElementsByClassName("medicine");
-    var d = document.getElementsByClassName("dose");
-    var t = document.getElementsByClassName("time");
-    var da = document.getElementsByClassName("days");
+    var med = document.getElementsByName("medicine");
+    var d = document.getElementsByName("dose");
+    var t = document.getElementsByName("time");
+    var da = document.getElementsByName("days");
 
     var medicine = [];
     var dose = [];
@@ -176,15 +176,15 @@ var add = (event) => {
     var days = [];
 
     for (var i = 0; i < med.length; i++) {
-        medicine.push(med[i]);
-        dose.push(d[i]);
-        time.push(t[i]);
-        days.push(da[i]);
+        medicine.push(med[i].value);
+        dose.push(d[i].value);
+        time.push(t[i].value);
+        days.push(da[i].value);
     }
 
     var prompt = document.getElementById("prompt");
     prompt.style.display = "block";
-    prompt.innerHTML = "<span>Data Added Successfullly.</span>";
+    prompt.innerHTML = "<span>" + medicine[0] + "</span>";
 
     var dataArray = [
         hnumber,
@@ -234,7 +234,8 @@ var add = (event) => {
         course_treatment: dataArray[19],
     };
 
-    const medicineCount = (dataArray.length - 21) / 4;
+    const medicineCount = med.length;
+    prompt.innerHTML = "<span>" + medicineCount + "</span>";
     for (let i = 0; i < medicineCount; i++) {
 
         obj['medicine' + (i + 1)] = medicine[i];
@@ -250,9 +251,34 @@ var add = (event) => {
     sendData(obj);
 }
 
+function del_run() {
+
+    fetch('data.txt')
+        .then(response => response.text())
+        .then(data => {
+            var line = data.split("\n");
+            line.splice(index, 1);
+            var y = document.getElementById("print");
+            y.innerHTML = "<p>Details Deleted Successfully</p>";
+            y.style.display = "block";
+            const object = {};
+            for (let i = 0; i < line.length; i++) {
+                object[i] = line[i];
+            }
+            if (line.length == 0) {
+                object[0] = "";
+            }
+
+            object.operation = "del";
+            object.count = line.length;
+            sendData(object);
+        });
+
+}
+
+var index;
 var delelte = (event) => {
     event.preventDefault();
-    var index;
     var medicine = [];
     var dose = [];
     var time = [];
@@ -289,13 +315,13 @@ var delelte = (event) => {
                     var others = contents[17];
                     var operatingNotes = contents[18];
                     var course_treatment = contents[19];
-                    for (var j = 20; j < (line.length - 1); j += 4) {
+                    for (var j = 20; j < (contents.length - 1); j += 4) {
                         medicine.push(contents[j]);
                         dose.push(contents[j + 1]);
                         time.push(contents[j + 2]);
                         days.push(contents[j + 3]);
                     }
-                    var followInfo = contents[line.length - 1];
+                    var followInfo = contents[contents.length - 1];
                     var prompt = document.getElementById("prompt");
                     var search_data = document.getElementById("delete-data");
                     search_data.style.display = "block";
@@ -324,11 +350,13 @@ var delelte = (event) => {
                     document.getElementById("operativeNotes").innerHTML = operatingNotes;
                     document.getElementById("treatmentNotes").innerHTML = course_treatment;
                     document.getElementById("followInstructions").innerHTML = followInfo;
-                    const iter = ((line.length - 1) - 20) / 4;
+                    const iter = ((contents.length - 1) - 20) / 4;
                     for (var j = 0; j < iter; j++) {
                         var htmlContentMed = '<div class="dischargeMed"><span class="dm" style="margin-left: 200px;">' + medicine[j] + '</span><span class="dm">' + dose[j] + '</span><span class="dm">' + time[j] + '</span><span class="dm">' + days[j] + '</span></div>';
                         document.getElementById("dismed").insertAdjacentHTML("beforeend", htmlContentMed);
                     }
+                    var showButton = document.getElementById("show");
+                    showButton.style.display = "block";
                     break;
                 }
             }
@@ -338,29 +366,8 @@ var delelte = (event) => {
                 prompt.innerHTML = "<span>Data Not Found.</span>";
                 document.getElementById("delete-data").style.display = "none";
             }
-            var showButton = document.getElementsByClassName("show");
-            showButton.style.display = "block";
         })
         .catch(error => {
             console.error('Error:', error);
         });
-    del(i);
-}
-
-function del(index) {
-    fetch('data.txt')
-        .then(response => response.text())
-        .then(data => {
-            var line = data.split("\n");
-            line.splice(index, 1);
-        });
-
-    const object = {};
-
-    for (let i = 0; i < line.length; i++) {
-        object[i] = line[i];
-    }
-    object.operation="del";
-    object.count=line.length;
-    sendData(object);
 }

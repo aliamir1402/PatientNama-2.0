@@ -38,7 +38,7 @@
                         href="login.html">Login</a></div>
             </div>
         </div>
-        <form onsubmit="delelte()">
+        <form onsubmit="delelte(event)">
             <div id="delete-body">
                 <div id="delete-title">
                     <h1><img src="delete.png" alt="deleteLogo" height="25px" width="25px">Delete Record</h1>
@@ -60,24 +60,24 @@
             <h4>Name:&nbsp;<span id="fullName"></span></h4>
             <h4>Consultant Name:&nbsp;<span id="cName"></span></h4>
             <h4>Age:&nbsp;<span id="Age"></span></h4>
-            <h4 id="Gender">Gender:&nbsp;<span id="cName"></span></h4>
-            <h4 id="mobileNumber">Mobile Number:&nbsp;<span id="cName"></span></h4>
-            <h4 id="hospitalNumber">Hospital Number:&nbsp;<span id="cName"></span></h4>
-            <h4 id="Cnic">Cnic:&nbsp;<span id="cName"></span></h4>
-            <h4 id="Address">Address:&nbsp;<span id="cName"></span></h4>
-            <h4 id="AdmitDate">Admit Date:&nbsp;<span id="cName"></span></h4>
-            <h4 id="BirthDate">Birth Date:&nbsp;<span id="cName"></span></h4>
+            <h4>Gender:&nbsp;<span id="Gender"></span></h4>
+            <h4>Mobile Number:&nbsp;<span id="mobileNumber"></span></h4>
+            <h4>Hospital Number:&nbsp;<span id="hospitalNumber"></span></h4>
+            <h4>Cnic:&nbsp;<span id="Cnic"></span></h4>
+            <h4>Address:&nbsp;<span id="Address"></span></h4>
+            <h4>Admit Date:&nbsp;<span id="AdmitDate"></span></h4>
+            <h4>Birth Date:&nbsp;<span id="BirthDate"></span></h4>
             <h3>Clinical Information</h3>
             <h4 id="clinicalInfo"></h4>
             <h3>Examination Findings</h3>
             <h4 id="examFindings"></h4>
             <h3>Investigations</h3>
-            <h4 id="CBC">CBC:&nbsp;<span id="cName"></span></h4>
-            <h4 id="LFT">LFTs:&nbsp;<span id="cName"></span></h4>
-            <h4 id="Electrolyte">Electrolytes:&nbsp;<span id="cName"></span></h4>
-            <h4 id="ViralMarkers">Viral Markers:&nbsp;<span id="cName"></span></h4>
-            <h4 id="Imagings">Imaging:&nbsp;<span id="cName"></span></h4>
-            <h4 id="OTHERs">Others:&nbsp;<span id="cName"></span></h4>
+            <h4>CBC:&nbsp;<span id="CBC"></span></h4>
+            <h4>LFTs:&nbsp;<span id="LFT"></span></h4>
+            <h4>Electrolytes:&nbsp;<span id="Electrolyte"></span></h4>
+            <h4>Viral Markers:&nbsp;<span id="ViralMarkers"></span></h4>
+            <h4>Imaging:&nbsp;<span id="Imagings"></span></h4>
+            <h4>Others:&nbsp;<span id="OTHERs"></span></h4>
             <h3>Operative Notes</h3>
             <h4 id="operativeNotes"></h4>
             <h3>Course / Treatment Notes</h3>
@@ -95,10 +95,11 @@
             <h4 id="followInstructions"></h4>
         </div>
         <div>
-            <div class="button show">
+            <div class="button" id="show">
                 <button style="background-color: rgb(28, 180, 117);font-size:large;margin-right:40px;"
-                    onclick="del()">Delete</button>
+                    onclick="del_run()">Delete</button>
             </div>
+            <div id="print"></div>
         </div>
         <div id="footer">
             <div id="title">

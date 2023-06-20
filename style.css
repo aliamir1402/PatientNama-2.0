@@ -71,6 +71,21 @@ div #prompt {
     font-family: 'Space Grotesk';
     display: none;
 }
+div #print {
+    background-color: #333;
+    color: #80da37;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left: 81%;
+    margin-top: 20px;
+    width: 200px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Space Grotesk';
+    display: none;
+}
 
 body {
     font-family: 'Space Grotesk';
@@ -630,7 +645,7 @@ div #but button {
     display: none;
 }
 
-.show {
+#show {
     display: none;
 }
 
