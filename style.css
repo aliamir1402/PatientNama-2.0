@@ -1,5 +1,7 @@
 body {
-    background-image: url('bg.jpg');
+    background-image: url('bg.png');
+    background-color: transparent;/* Adjust the alpha value to control the transparency */
+    background-size: 30%;
 }
 
 /*Drop-Down List*/
@@ -71,6 +73,7 @@ div #prompt {
     font-family: 'Space Grotesk';
     display: none;
 }
+
 div #print {
     background-color: #333;
     color: #80da37;
@@ -503,9 +506,45 @@ div #but button {
 }
 
 #search-data {
-    padding-top: 15px;
+    margin-top: 100px;
+    font-weight: bolder;
+    padding: 15px;
+    border: 7px solid black;
+    text-align: left;
+    border-radius: 50px;
     display: none;
 }
+
+#search-data h3 {
+    border: 2px black dashed;
+    width: 20%;
+    padding: 10px;
+    margin-left: 200px;
+    text-align: left;
+}
+
+#download {
+    background-color: #333;
+    color: #80da37;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left: 88%;
+    margin-top: 20px;
+    width: 120px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Space Grotesk';
+    border: 0px solid black;
+}
+
+#download:hover {
+    color: black;
+    background-color: rgb(125, 204, 22);
+    width: 120px;
+}
+
 
 /*Css for dashboard.html*/
 #bod {

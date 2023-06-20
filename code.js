@@ -19,6 +19,13 @@ var medFunc = () => {
     container.insertAdjacentHTML("beforeend", htmlContent);
 }
 
+var hnumber;
+var obj_contents;
+
+var downloadFunc=()=>{
+    sendData(obj_contents);
+}
+
 var searchFunc = (event) => {
     event.preventDefault();
     var medicine = [];
@@ -36,7 +43,7 @@ var searchFunc = (event) => {
             for (var i = 0; i < line.length; i++) {
                 if ((line[i].split("|"))[0] == searchItem) {
                     var contents = line[i].split("|");
-                    var hnumber = contents[0];
+                    hnumber = contents[0];
                     var fname = contents[1];
                     var age = contents[2];
                     var cnic = contents[3];
@@ -96,6 +103,67 @@ var searchFunc = (event) => {
                         var htmlContentMed = '<div class="dischargeMed"><span class="dm" style="margin-left: 200px;">' + medicine[j] + '</span><span class="dm">' + dose[j] + '</span><span class="dm">' + time[j] + '</span><span class="dm">' + days[j] + '</span></div>';
                         document.getElementById("dismed").insertAdjacentHTML("beforeend", htmlContentMed);
                     }
+
+                    var dataArray = [
+                        hnumber,
+                        fname,
+                        age,
+                        cnic,
+                        address,
+                        cname,
+                        mnumber,
+                        selectedValue,
+                        admitDate,
+                        birthDate,
+                        clinicalInfo,
+                        examFindings,
+                        cbc,
+                        lfts,
+                        electrolytes,
+                        viralmarkers,
+                        imaging,
+                        others,
+                        operatingNotes,
+                        course_treatment,
+                        followInfo
+                    ];
+                
+                
+                    obj_contents = {
+                        hnumber: dataArray[0],
+                        fname: dataArray[1],
+                        age: dataArray[2],
+                        cnic: dataArray[3],
+                        address: dataArray[4],
+                        cname: dataArray[5],
+                        mnumber: dataArray[6],
+                        selectedValue: dataArray[7],
+                        admitDate: dataArray[8],
+                        birthDate: dataArray[9],
+                        clinicalInfo: dataArray[10],
+                        examFindings: dataArray[11],
+                        cbc: dataArray[12],
+                        lfts: dataArray[13],
+                        electrolytes: dataArray[14],
+                        viralmarkers: dataArray[15],
+                        imaging: dataArray[16],
+                        others: dataArray[17],
+                        operatingNotes: dataArray[18],
+                        course_treatment: dataArray[19],
+                    };
+                
+                    const medicineCount = iter;
+                    for (let i = 0; i < medicineCount; i++) {
+                
+                        obj_contents['medicine' + (i + 1)] = medicine[i];
+                        obj_contents['dose' + (i + 1)] = dose[i];
+                        obj_contents['time' + (i + 1)] = time[i];
+                        obj_contents['days' + (i + 1)] = days[i];
+                    }
+                
+                    obj_contents.followInfo = dataArray[dataArray.length - 1];
+                    obj_contents.medicineCount = medicineCount;
+                    obj_contents.operation = "download";
                     break;
                 }
             }

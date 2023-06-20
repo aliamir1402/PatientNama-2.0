@@ -3,6 +3,9 @@ const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const {
+    PythonShell
+} = require('python-shell');
+const {
     app,
     BrowserWindow
 } = require('electron');
@@ -83,15 +86,44 @@ function serverAdd() {
                 res.status(200).send('Data deleted from file');
                 console.log("Deleted");
             });
+        } else if (obj.operation == "download") {
+            var x = obj.hnumber + "|" + obj.fname + "|" + obj.age + "|" + obj.cnic + "|" + obj.address + "|" + obj.cname + "|" + obj.mnumber + "|" + obj.selectedValue + "|" +
+                obj.admitDate + "|" + obj.birthDate + "|" + obj.clinicalInfo + "|" + obj.examFindings + "|" + obj.cbc + "|" + obj.lfts + "|" + obj.electrolytes + "|" + obj.viralmarkers +
+                "|" + obj.imaging + "|" + obj.others + "|" + obj.operatingNotes + "|" + obj.course_treatment + "|";
+
+            for (var i = 0; i < obj.medicineCount; i++) {
+                x += obj['medicine' + (i + 1)] + "|" + obj['dose' + (i + 1)] + "|" + obj['time' + (i + 1)] + "|" + obj['days' + (i + 1)] + "|";
+            }
+            x += obj.followInfo;
+
+            console.log("Data: " + x);
+            if (!data) {
+                console.log("No Data");
+                res.status(400).send('No data provided');
+                return;
+            }
+            fs.writeFile('download.txt', x + '\n', 'utf8', (err) => {
+                if (err) {
+                    console.error('Error downloading to file:', err);
+                    res.status(500).send('Error appending to file');
+                    return;
+                }
+                res.status(200).send('Download File');
+                console.log("Download");
+            });
+
+            PythonShell.run('script.py', null, function(err) {
+                if (err) throw err;
+                console.log('Python script executed successfully.');
+            });
+
         }
     });
-    console.log("E");
     app.listen(port, () => {
         console.log(`Server listening on port ${port}`);
         console.log("F");
     });
 }
-
 
 app.whenReady().then(() => {
     createMainWindow();
