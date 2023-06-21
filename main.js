@@ -112,7 +112,7 @@ function serverAdd() {
                 console.log("Download");
             });
 
-            PythonShell.run('script.py', null, function(err) {
+            PythonShell.run('pdfGen.py', null, function(err) {
                 if (err) throw err;
                 console.log('Python script executed successfully.');
             });
