@@ -1,6 +1,7 @@
 body {
     background-image: url('bg.png');
-    background-color: transparent;/* Adjust the alpha value to control the transparency */
+    background-color: transparent;
+    /* Adjust the alpha value to control the transparency */
     background-size: 30%;
 }
 

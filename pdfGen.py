@@ -1,12 +1,8 @@
 import os
-import pandas as pd
-import time as t
-from reportlab.lib.pagesizes import A4, letter
+from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
-import numpy as np
 from datetime import date
 from PyPDF2 import PdfMerger
-import sys
 
 
 def pdfGenerate(wordList):
@@ -26,7 +22,7 @@ def pdfGenerate(wordList):
     my_canvas.setFont('Helvetica', 11)
     my_canvas.drawString(420, 730, "Discharge Date: ")
     today = date.today()
-    d2 = today.strftime("%B %d, %Y")
+    d2 = today.strftime("%Y-%m-%d")
     my_canvas.drawString(510, 730, d2)
     my_canvas.line(460, 773, 580, 773)
 

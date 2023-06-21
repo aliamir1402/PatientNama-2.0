@@ -10,7 +10,6 @@ const {
     BrowserWindow
 } = require('electron');
 
-
 function createMainWindow() {
     const {
         screen
@@ -27,7 +26,7 @@ function createMainWindow() {
         icon: 'logo.jpg'
     });
 
-    MainWindow.loadFile(path.join(__dirname, "add.html"));
+    MainWindow.loadFile(path.join(__dirname, "login.html"));
 }
 
 function serverAdd() {
